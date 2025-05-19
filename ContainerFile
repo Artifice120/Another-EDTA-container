@@ -11,8 +11,6 @@ PLACEHOLDER
 
 %post
 
-su -  root # USER root
-
 apt-get update \
     && apt-get install -y build-essential \
     && apt-get install -y wget \
@@ -30,7 +28,5 @@ cd /app
 
 PROJECT_DIR=/app
 
-conda create -n EDTA && \
-conda activate EDTA && \
-mamba install -c conda-forge -c bioconda edta
+mamba env create -n edta -c conda-forge -c bioconda edta
 

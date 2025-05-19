@@ -15,6 +15,13 @@ apptainer build edta-conda.sif ContainerFile
 
 ### Run
 
+Conda has to be initiated each time the image is activated.
+
+The most straight forward way around it is to run the bash script init.bash with the image
+
+The edta command can be added to the end of the bash script itself
+
 ```
-apptainer -B path/to/Another-EDTA-container/ EDTA.pl --genome genome.fa --curatedlib ../database/your.file --overwrite 1 --sensitive 1 --anno 1 --threads 10
+singularity exec -B /proj/parkerlab/users/jotorr/PaintSHOP_pipeline edta-conda.sif /bin/sh init.bash
 ```
+
